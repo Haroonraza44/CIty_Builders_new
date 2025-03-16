@@ -1,41 +1,50 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
     <style>
 
-.project1{
-    margin: 1rem auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 1.5rem;
-    justify-content: center;
+        @import url(../style.css);
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .project1 {
+            margin: 1rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 1.5rem;
+            justify-content: center;
 
 
-}
+        }
 
-.project1 img{
-    max-width: 80%;
-    margin: auto;
-    height: auto;
-    border: 3px solid grey;
-    padding: 3px;
-    border-radius: 10px;
-    object-fit: cover;
+        .project1 img {
+            max-width: 80%;
+            margin: auto;
+            height: auto;
+            border: 3px solid grey;
+            padding: 1px;
+            border-radius: 10px;
+            object-fit: cover;
 
-}
-body{
-    padding: 1rem;
-    background-color: #eee;
+        }
 
-}
+        body {
+            padding: 1rem;
+            background-color: #eee;
+        }
 
-p.btn-box {
-            padding: 6px;
+        p.btn-box {
+            padding: .3rem;
             text-decoration: none;
-            height: 40px;
-            width: 40px;
+            height: 1rem;
+            width: 1rem;
+            margin: 0;
+        
         }
 
         a.btn img {
@@ -47,20 +56,26 @@ p.btn-box {
             .project1 img {
                 width: 65%;
                 max-height: 75vw;
- 
             }
+
+            p.btn-box {
+            height: 2rem;
+            width: 2rem;
+        }
+
         }
     </style>
 
 
 </head>
+
 <body>
     <p class="btn-box">
         <a href="../index.html" class="btn"> <img src="/project2/P2images/back.png" alt="">
     </p>
 
     <div class="project1">
-        
+
         <img src="/project1/Pimages/L3.jpg" alt="">
         <img src="/project1/Pimages/L5.jpg" alt="">
         <img src="/project1/Pimages/P7.jpg" alt="">
@@ -75,4 +90,16 @@ p.btn-box {
 
     </div>
 </body>
+
+<footer>
+    <h3>Get In Touch</h3>
+    <p>Email or call us to set up a consult</p>
+    <p>Email:
+        <strong>citybuilders.faisalabad@gmail.com</strong>
+    </p>
+    <p id="contact">Phone:
+        <strong>(+92) 321-6623895</strong> <br>
+        <strong>(+92) 340-7056366</strong>
+    </p>
+</footer>
 </html>
