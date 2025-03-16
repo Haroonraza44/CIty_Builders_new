@@ -6,20 +6,24 @@
     <style>
 
 .project1{
-    margin: 1rem 0;
+    margin: 1rem auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+
 
 }
 
 .project1 img{
-    width: 90%;
+    max-width: 80%;
     margin: auto;
     height: auto;
     border: 3px solid grey;
-    padding: 2px;
+    padding: 3px;
     border-radius: 10px;
+    object-fit: cover;
+
 }
 body{
     padding: 1rem;
@@ -27,18 +31,48 @@ body{
 
 }
 
+p.btn-box {
+            padding: 6px;
+            text-decoration: none;
+            height: 40px;
+            width: 40px;
+        }
+
+        a.btn img {
+            height: 100%;
+            width: 100%;
+        }
+
+        @media (min-width: 700px) {
+            .project1 img {
+                width: 65%;
+                max-height: 75vw;
+ 
+            }
+        }
     </style>
 
 
 </head>
 <body>
+    <p class="btn-box">
+        <a href="../index.html" class="btn"> <img src="/project2/P2images/back.png" alt="">
+    </p>
+
     <div class="project1">
+        
         <img src="/project1/Pimages/L3.jpg" alt="">
+        <img src="/project1/Pimages/L5.jpg" alt="">
+        <img src="/project1/Pimages/P7.jpg" alt="">
+        <img src="/project1/Pimages/P6.jpg" alt="">
         <img src="/project1/Pimages/L4.jpg" alt="">
         <img src="/project1/Pimages/P1.jpg" alt="">
         <img src="/project1/Pimages/P2.jpg" alt="">
         <img src="/project1/Pimages/P3.jpg" alt="">
         <img src="/project1/Pimages/P4.jpg" alt="">
+        <img src="/project1/Pimages/L1.jpg" alt="">
+
+
     </div>
 </body>
 </html>
