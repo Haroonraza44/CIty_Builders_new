@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root{
+      --navy:#10233d;
+      --gold:#c8a24a;
+      --light:#f6f7fb;
+      --text:#444;
+      --white:#fff;
+      --shadow:0 10px 30px rgba(16,35,61,.12);
+    }
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      background: var(--white);
+    }
+    img{ max-width:100%; display:block; }
+    .container{
+      width:min(1200px, 92%);
+      margin:0 auto;
+    }
+
+    header{
+      background: var(--navy);
+      color: #fff;
+      padding: 18px 0;
+    }
+
+    .back-link{
+      display:inline-block;
+      margin: 22px 0;
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .hero{
+      border-radius: 18px;
+      overflow: hidden;
+      height: 320px;
+      background: linear-gradient(rgba(16,35,61,.25), rgba(16,35,61,.25)), url('city-builders.jpeg') center/cover no-repeat;
+      box-shadow: var(--shadow);
+    }
+
+    .content{
+      padding: 28px 0 24px;
+    }
+
+    h1{
+      color: var(--navy);
+      margin-bottom: 10px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+    }
+
+    .meta{
+      background: var(--light);
+      padding: 18px;
+      border-radius: 14px;
+      margin-top: 18px;
+    }
+
+    .meta p{
+      margin-bottom: 8px;
+    }
+
+    .section-title{
+      color: var(--navy);
+      font-size: 1.6rem;
+      margin: 40px 0 16px;
+    }
+
+    .gallery-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+    }
+
+    .gallery-grid a{
+      display:block;
+      border-radius: 14px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      aspect-ratio: 1 / 1;
+      background: #e9eef5;
+    }
+
+    .gallery-grid img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .25s ease;
+    }
+
+    .gallery-grid a:hover img{
+      transform: scale(1.05);
+    }
+
+    footer{
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+      padding: 22px 0;
+      margin-top: 40px;
+    }
+    .footer{
+  background: var(--navy);
+  color: #fff;
+  padding: 30px 0;
+}
+
+.footer-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.footer-brand h3{
+  margin-bottom: 6px;
+  font-size: 1.3rem;
+}
+
+.footer-brand p{
+  color: rgba(255,255,255,.8);
+}
+
+.footer-social{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-social a{
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,.10);
+  color: #fff;
+  transition: .25s ease;
+  font-size: 1.1rem;
+}
+
+.footer-social a:hover{
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-3px);
+}
+
+.footer-copy{
+  color: rgba(255,255,255,.75);
+  font-size: .95rem;
+}
+
+    @media (max-width: 600px){
+      .hero{ height: 240px; }
+      .gallery-grid{
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <strong>City Builders Faisalabad</strong>
+    </div>
+  </header>
+
+  <div class="container">
+    <a class="back-link" href="projects.html">← Back to Projects</a>
+
+    <div class="content">
+      <h1>5 Marla House - Eden Garden Faisalabad</h1>
+
+      <div class="meta">
+        <p><strong>Location:</strong> Faisalabad</p>
+        <p><strong>Type:</strong> Contract-based house construction</p>
+        <p><strong>Scope:</strong> Grey structure, finishing, and delivery</p>
+      </div>
+
+      <h2 class="section-title">Photo Gallery</h2>
+      <div class="gallery-grid">
+        <a href="images/Eden Garden/eden garden (1).jpg" target="_blank"><img src="images/Eden Garden/eden garden (1).jpg" alt="Project 1 photo 1"></a>
+        <a href="images/Eden Garden/eden garden (2).jpg" target="_blank"><img src="images/Eden Garden/eden garden (2).jpg" alt="Project 1 photo 2"></a>
+        <a href="images/Eden Garden/eden garden (3).jpg" target="_blank"><img src="images/Eden Garden/eden garden (3).jpg" alt="Project 1 photo 3"></a>
+        <a href="images/Eden Garden/eden garden (4).jpg" target="_blank"><img src="images/Eden Garden/eden garden (4).jpg" alt="Project 1 photo 4"></a>
+        <a href="images/Eden Garden/eden garden (5).jpg" target="_blank"><img src="images/Eden Garden/eden garden (5).jpg" alt="Project 1 photo 5"></a>
+        <a href="images/Eden Garden/eden garden (6).jpg" target="_blank"><img src="images/Eden Garden/eden garden (6).jpg" alt="Project 1 photo 6"></a>
+        
+            
+
+      </div>
+    </div>
+  </div>
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <h3>City Builders Faisalabad</h3>
+      <p>Professional residential construction on contract.</p>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61573247112837" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/company/city-builders-faisalabad/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+
+    <p class="footer-copy">© 2026 City Builders Faisalabad. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

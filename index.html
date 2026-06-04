@@ -1,76 +1,581 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Builders</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="images/android-chrome-192x192.png" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>City Builders Faisalabad</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root{
+      --navy:#10233d;
+      --navy-2:#163252;
+      --gold:#c8a24a;
+      --light:#f6f7fb;
+      --text:#444;
+      --white:#fff;
+      --shadow:0 10px 30px rgba(16,35,61,.12);
+    }
+    html { scroll-behavior: smooth; }
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      overflow-x:hidden;
+      background: var(--white);
+    }
+    img{ max-width:100%; display:block; }
+    a{ text-decoration:none; }
+
+    .container{
+      width:min(1200px, 92%);
+      margin:0 auto;
+    }
+
+    header{
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+      background: rgba(16,35,61,.96);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    }
+    .nav{
+      height: 78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+    .brand img{
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fff;
+      padding: 2px;
+    }
+    .brand span{
+      font-size: 1.05rem;
+      line-height: 1.1;
+    }
+    .brand small{
+      display:block;
+      font-weight: 400;
+      color: rgba(255,255,255,.72);
+      font-size: .78rem;
+      margin-top: 2px;
+    }
+
+    .menu{
+      list-style:none;
+      display:flex;
+      align-items:center;
+      gap: 28px;
+    }
+    .menu a{
+      color: var(--white);
+      font-size: .98rem;
+      font-weight: 600;
+    }
+    .menu a:hover{ color: var(--gold); }
+
+    .hamburger{
+      display:none;
+      background:none;
+      border:0;
+      cursor:pointer;
+      padding:8px;
+    }
+    .hamburger span{
+      display:block;
+      width:26px;
+      height:3px;
+      background:#fff;
+      margin:5px 0;
+      border-radius:3px;
+    }
+
+    .hero{
+      min-height: 100vh;
+      padding-top: 78px;
+      display:flex;
+      align-items:center;
+      background:
+        linear-gradient(rgba(16,35,61,.78), rgba(16,35,61,.72)),
+        url('images/hero.jpg') center/cover no-repeat;
+      color: var(--white);
+      text-align:center;
+    }
+    .hero-inner{
+      width:min(820px, 100%);
+      margin:0 auto;
+      padding: 70px 0;
+    }
+    .hero-logo{
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      background: rgba(255,255,255,.95);
+      border-radius: 18px;
+      padding: 10px;
+      margin: 0 auto 18px;
+      box-shadow: var(--shadow);
+    }
+    .hero h1{
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .hero p{
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255,255,255,.9);
+      margin-bottom: 28px;
+    }
+    .btn-row{
+      display:flex;
+      gap: 14px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding: 13px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: .25s ease;
+    }
+    .btn-primary{
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn-primary:hover{ transform: translateY(-2px); background: #e0b95f; }
+    .btn-outline{
+      border: 2px solid rgba(255,255,255,.7);
+      color: #fff;
+    }
+    .btn-outline:hover{
+      transform: translateY(-2px);
+      border-color:#fff;
+      background: rgba(255,255,255,.08);
+    }
+
+    section{
+      padding: 80px 0;
+    }
+    .section-title{
+      text-align:center;
+      color: var(--navy);
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      margin-bottom: 12px;
+    }
+    .section-subtitle{
+      text-align:center;
+      color:#666;
+      max-width: 760px;
+      margin: 0 auto 34px;
+    }
+
+    .about{
+      background: var(--light);
+    }
+    .about-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 36px;
+      align-items:center;
+    }
+    .about-box{
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .about-box h3{
+      color: var(--navy);
+      margin-bottom: 14px;
+      font-size: 1.4rem;
+    }
+    .about-box p{ margin-bottom: 14px; }
+    .about-logo{
+      background:#fff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height: 300px;
+    }
+    .about-logo img{
+      width:min(320px, 100%);
+      object-fit: contain;
+    }
+
+    .services-grid,
+    .projects-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+    .card{
+      background:#fff;
+      border-radius: 18px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      transition: .25s ease;
+    }
+    .card:hover{ transform: translateY(-6px); }
+    .service-card{
+      padding: 26px 22px;
+      text-align:center;
+    }
+    .service-icon{
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: rgba(200,162,74,.14);
+      color: var(--gold);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 1.5rem;
+      margin: 0 auto 16px;
+      font-weight: 700;
+    }
+    .service-card h3{
+      color: var(--navy);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .project-image{
+      height: 210px;
+      background: linear-gradient(rgba(16,35,61,.2), rgba(16,35,61,.2)),url('images/Model City/model city main.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .project-body{
+      padding: 18px;
+    }
+    .project-body h3{
+      color: var(--navy);
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+    .project-body p{
+      margin-bottom: 14px;
+      font-size: .95rem;
+    }
+    .project-body .btn{
+      padding: 10px 18px;
+      border-radius: 10px;
+    }
+
+    .contact{
+      background: var(--light);
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items:start;
+      margin-top: 28px;
+    }
+    .contact-card{
+      background:#fff;
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+    .contact-item{
+      margin-bottom: 16px;
+    }
+    .contact-item strong{
+      display:block;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .phone-link{
+      color: var(--text);
+      font-weight: 700;
+    }
+    .phone-link:hover{ color: var(--gold); }
+    .form-group{ margin-bottom: 14px; }
+    input, textarea{
+      width:100%;
+      padding: 14px 15px;
+      border: 1px solid #d8dde6;
+      border-radius: 12px;
+      font: inherit;
+      outline:none;
+      background: #fff;
+    }
+    input:focus, textarea:focus{
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200,162,74,.12);
+    }
+    textarea{ min-height: 140px; resize: vertical; }
+
+    footer{
+      background: var(--navy);
+      color: rgba(255,255,255,.88);
+      text-align:center;
+      padding: 24px 0;
+    }
+
+    .menu-open .menu{
+      left: 0;
+    }
+
+    @media (max-width: 768px){
+      .hamburger{ display:block; }
+      .menu{
+        position: fixed;
+        top: 78px;
+        left: -100%;
+        width: 100%;
+        flex-direction: column;
+        background: var(--navy-2);
+        padding: 22px 0;
+        gap: 18px;
+        transition: .25s ease;
+      }
+      .about-grid,
+      .contact-grid{
+        grid-template-columns: 1fr;
+      }
+      section{ padding: 64px 0; }
+    }
+
+    @media (max-width: 480px){
+      .nav{ height: 72px; }
+      .hero{ padding-top: 72px; }
+      .hero-logo{ width: 96px; height: 96px; }
+      .hero-inner{ padding: 56px 0; }
+      .btn{ width: 100%; text-align:center; }
+      .btn-row{ flex-direction: column; }
+    }
+
+    .footer{
+  background: var(--navy);
+  color: #fff;
+  padding: 30px 0;
+}
+
+.footer-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.footer-brand h3{
+  margin-bottom: 6px;
+  font-size: 1.3rem;
+}
+
+.footer-brand p{
+  color: rgba(255,255,255,.8);
+}
+
+.footer-social{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-social a{
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,.10);
+  color: #fff;
+  transition: .25s ease;
+  font-size: 1.1rem;
+}
+
+.footer-social a:hover{
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-3px);
+}
+
+.footer-copy{
+  color: rgba(255,255,255,.75);
+  font-size: .95rem;
+}
+  </style>
 </head>
-
 <body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="images/city-builders.jpeg" alt="City Builders Logo">
+        <span>City Builders<small>Faisalabad</small></span>
+      </a>
 
-<main>
-    <!-- Landing Area -->
-    <div id="landing">
-        <div id="landing-text">
-            <div id="landing-text-inner">
-                <img src="images/city-removebg-preview.png" alt="">
-                <h1>City Builders</h1>
-                <h2>We Build, You Prosper</h2>
-                <a href="#contact" class="contact-btn" id="view-work">
-                    Contact now
-                </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Featured Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <img class="hero-logo" src="images/city-builders.jpeg" alt="City Builders Logo">
+      <h1>Building Homes with Trust and Quality</h1>
+      <p>House construction on contract in Faisalabad for 5 Marla, 10 Marla, and 1 Kanal homes.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="projects.html">View Projects</a>
+        <a class="btn btn-outline" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title">About City Builders</h2>
+      <p class="section-subtitle">A simple, professional construction company website built around your logo and services.</p>
+      <div class="about-grid">
+        <div class="about-box">
+          <h3>Residential Construction in Faisalabad</h3>
+          <p>City Builders provides house construction services on contract with a focus on quality work, clean finishing, and on-time delivery.</p>
+          <p>We work on new home construction, structural work, grey structure, finishing, and complete turn-key projects.</p>
+          <p>Our goal is to keep the website simple, modern, and easy for customers to contact you.</p>
+        </div>
+        <div class="about-logo">
+          <img src="images/city-builders.jpeg" alt="City Builders Logo Large">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">Core house-building services for small and medium residential projects.</p>
+      <div class="services-grid">
+        <div class="card service-card">
+          <div class="service-icon">1</div>
+          <h3>House Construction</h3>
+          <p>Complete residential construction from foundation to finishing.</p>
+        </div>
+        <div class="card service-card">
+          <div class="service-icon">2</div>
+          <h3>Contract Work</h3>
+          <p>Construction on contract with clear planning and proper execution.</p>
+        </div>
+        <div class="card service-card">
+          <div class="service-icon">3</div>
+          <h3>Grey Structure</h3>
+          <p>Strong and reliable structural work for your future home.</p>
+        </div>
+        <div class="card service-card">
+          <div class="service-icon">4</div>
+          <h3>Finishing Work</h3>
+          <p>Neat finishing, flooring, painting, and final home details.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">Call or message the numbers below for quotes and project details.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-item">
+            <strong>Phone</strong>
+            <a class="phone-link" href="tel:03216623895">03216623895</a>
+          </div>
+          <div class="contact-item">
+            <a class="phone-link" href="tel:03407056366">03407056366</a>
+          </div>
+          <div class="contact-item">
+            <strong>Location</strong>
+            <span>Faisalabad, Punjab, Pakistan</span>
+          </div>
+        </div>
+        <div class="contact-card">
+          <form>
+            <div class="form-group">
+              <input type="text" placeholder="Your Name">
             </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Your Phone Number">
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Your Message"></textarea>
+            </div>
+            <a class="btn btn-primary" href="tel:03216623895" style="display:inline-block;">Call Now</a>
+          </form>
         </div>
-        <div id="landing-image"></div>
+      </div>
+    </div>
+  </section>
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <h3>City Builders Faisalabad</h3>
+      <p>Professional residential construction on contract.</p>
     </div>
 
-    <div id="projects">
-        <div id="header">
-            <h2>Our Work</h2>
-        </div>
-        <div class="project-main">
-            <a href="project1/index.html">
-                <img src="images/P1.jpg" alt="">
-                <div class="caption">
-                    <h3>Model City Canal Road Project - 2022</h3>
-                </div>
-            </a>
-        </div>
-        <div class="project-main">
-            <a href="project2/index.html">
-                <img src="images/P2.jpg" alt="">
-                <div class="caption">
-                    <h3>Eden Garden Canal Road Project - 2023</h3>
-                </div>
-            </a>
-        </div>
-
-        <div class="project">
-
-            <a href="project3/index.html">
-                <img src="images/P3.jpg" alt="">
-                <div class="caption">
-                    <h3> City Housing Samundari Road Project - 2024</h3>
-                </div>
-            </a>
-        </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61573247112837" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/company/city-builders-faisalabad/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
     </div>
-</main>
 
-<footer>
-    <h3>Get In Touch</h3>
-    <p>Email or call us to set up a consult</p>
-    <p>Email:
-        <strong>citybuilders.faisalabad@gmail.com</strong>
-    </p>
-    <p id="contact">Phone:
-        <strong>(+92) 321-6623895</strong> <br>
-        <strong>(+92) 340-7056366</strong>
-    </p>
+    <p class="footer-copy">© 2026 City Builders Faisalabad. All rights reserved.</p>
+  </div>
 </footer>
 
-</body>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
 
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('menu-open');
+      menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
+    });
+
+    document.querySelectorAll('#menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) menu.style.left = '-100%';
+      });
+    });
+  </script>
+</body>
 </html>
